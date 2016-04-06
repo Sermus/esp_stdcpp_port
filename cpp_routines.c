@@ -1,37 +1,12 @@
 #include <c_types.h>
-#include "cpp_routines.h"
-
-
-extern "C"
-{
 #include <osapi.h>
 #include <mem.h>
 #include "espmissingincludes.h"
-}
 
-void *operator new(size_t size)
-{
-    return os_malloc(size);
-}
-
-void *operator new[](size_t size)
-{
-    return os_malloc(size);
-}
-
-void operator delete(void * ptr)
-{
-    os_free(ptr);
-}
-
-void operator delete[](void * ptr)
-{
-    os_free(ptr);
-}
-
-extern "C" void __cxa_pure_virtual(void) __attribute__ ((__noreturn__));
-extern "C" void __cxa_deleted_virtual(void) __attribute__ ((__noreturn__));
-extern "C" void abort()
+void abort(void) __attribute__ ((__noreturn__));
+void __cxa_pure_virtual(void) __attribute__ ((__noreturn__));
+void __cxa_deleted_virtual(void) __attribute__ ((__noreturn__));
+void abort()
 {
     while (true)
         ; // enter an infinite loop and get reset by the WDT
