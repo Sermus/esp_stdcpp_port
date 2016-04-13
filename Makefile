@@ -1,5 +1,5 @@
-CC = xtensa-lx106-elf-gcc
-AR = xtensa-lx106-elf-ar
+CC = xtensa-esp108-elf-gcc
+AR = xtensa-esp108-elf-ar
 CFLAGS = -I. -Os -mlongcalls -ffunction-sections -fdata-sections
 
 libstdc++port.a: cpp_routines.o
